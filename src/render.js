@@ -6,6 +6,10 @@ documentIds.forEach(function(id,index) {
   window[id] = document.getElementById(id.getAttribute("id"));
 });
 const a = document.querySelectorAll("a");
+
+
+var easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});
+
 // ########################################################################################################################
 // PREPARE TABLE BUILDING
 // ########################################################################################################################
@@ -158,12 +162,16 @@ btnArchiveTodos.onclick = function() {
 }
 btnOpenTodoFile.forEach(function(el) {
   el.onclick = function () {
-    //openFile();
     window.api.send("openOrCreateFile", "open");
     // trigger matomo event
     if(window.userData.matomoEvents) _paq.push(["trackEvent", "Menu", "Click on Open file"]);
   }
 });
+modalFormAddNote.onclick = function() {
+  //window.api.send("openOrCreateFile", "createNote");
+  // trigger matomo event
+  //if(window.userData.matomoEvents) _paq.push(["trackEvent", "Menu", "Click on Open file"]);
+}
 btnChangeTodoFile.forEach(function(el) {
   el.onclick = function () {
     if(window.userData.files.length > 0) {
@@ -1324,7 +1332,6 @@ function generateTableRow(todo) {
     todoTableBodyCellCheckbox.onclick = function() {
       // passing the data-item attribute of the parent tag to complete function
       setTodoComplete(this.parentElement.getAttribute('data-item')).then(response => {
-        //modalForm.classList.remove("is-active");
         console.log(response);
       }).catch(error => {
         console.log(error);
@@ -1341,7 +1348,7 @@ function generateTableRow(todo) {
           // truncate the url
           let urlString = url;
           if(url.length>30) {
-            urlString = url.slice(0, 30) + " [...]";
+            urlString = url.slice(0, 30) + " <small>[...]</small>";
           }
           return urlString + " <a href=" + url + " target=\"_blank\"><i class=\"fas fa-external-link-alt\"></i></a>";
         }
@@ -1723,7 +1730,6 @@ function setTodoComplete(todo) {
       window.items.objects.splice(index, 1, todo);
     }
     //write the data to the file
-    //fs.writeFileSync(file, items.objects.join("\n").toString(), {encoding: 'utf-8'});
     window.api.send("writeToFile", [window.items.objects.join("\n").toString(), window.userData.file]);
     return Promise.resolve("Success: Changes written to file: " + window.userData.file);
   } catch(error) {
@@ -2469,7 +2475,7 @@ window.onload = async function () {
     generateItemsObject(content).then(function(result) {
       console.log(result);
       // close any modal
-      clearModal();
+      //clearModal();
     }).catch(function(error) {
       console.log(error);
     });

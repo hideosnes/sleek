@@ -316,6 +316,27 @@ const createWindow = () => {
         console.log("Error: " + err)
     });
   }
+  function createNote() {
+    dialog.showSaveDialog({
+      title: i18next.t("windowTitleCreateFile"),
+      defaultPath: path.join(app.getPath('home')),
+      buttonLabel: i18next.t("windowButtonCreateFile"),
+      filters: [{
+        name: i18next.t("windowFileformat"),
+        extensions: ["md"]
+      }],
+      properties: ["openFile", "createDirectory"]
+    }).then(file => {
+      fs.writeFile(file.filePath, "", function (error) {
+        if (!file.canceled) {
+          console.log("Success: New todo.txt file created: " + file.filePath);
+          mainWindow.webContents.send("changeFile", file.filePath)
+        }
+      });
+    }).catch(error => {
+      console.log("Error: " + error)
+    });
+  }
   // ########################################################################################################################
   // LISTEN TO REQUESTS FROM RENDERER CONTEXT
   // ########################################################################################################################
@@ -365,6 +386,9 @@ const createWindow = () => {
         break;
       case "create":
         createFile();
+        break;
+      case "createNote":
+        createNote();
         break;
     }
   });

@@ -398,6 +398,28 @@ nav {
   }
 }
 
+/* NOTES */
+#modalFormAddNote {
+  position: relative;
+  svg {
+    font-size: 2.5em;
+    padding: .25em;
+  }
+  .card {
+    width: 4em;
+    position: absolute;
+  }
+}
+#noteDrawer {
+  width: 35%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 2em;
+  background: $mid-grey;
+}
+
 /* TABLE */
 #todoTable {
   width: 100%;

@@ -2,7 +2,7 @@
 <html>
   <head id="head">
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.robbfolio.de">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.robbfolio.de https://unpkg.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>sleek</title>
     <link rel="stylesheet" href="css/style.css">
@@ -86,7 +86,7 @@
         </section>
       </div>
     </div>
-    <form id="modalForm" class="modal modalFormSubmit">
+    <form id="modalForm" class="modal modalFormSubmit is-active">
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="card">
@@ -187,6 +187,29 @@
                     <a href="#" class="card-footer-item selection" tabindex="0" value="" id="recurrencePickerNoRecurrence"></a>
                   </footer>
                 </div>
+              </div>
+              <div id="modalFormAddNote" class="field is-active">
+                <div class="control has-icons-left">
+                  <button class="button"><i class="far fa-sticky-note"></i> Add note</button>
+                  <div class="card">
+                    <header class="card-header">
+                      <p class="card-header-title">
+                        <input type="text" placeholder="Name of note" class="input is-medium">
+                      </p>
+                    </header>
+                  </div>
+                </div>
+
+
+
+                <!--<i class="far fa-sticky-note"></i>Add a note
+                <div class="card">
+                  <header class="card-header">
+                    <p class="card-header-title">
+                      <input type="text" placeholder="Name of note" class="input is-medium">
+                    </p>
+                  </header>
+                </div>-->
               </div>
               <br />
             </div>
@@ -456,6 +479,9 @@
         <p><button id="btnMessageLogging" class="button" tabindex="0"><i class="fas fa-cog"></i>&nbsp;<span id="messageLoggingButton"></span></button></p>
       </div>
     </article>
+    <!--<div id="noteDrawer">
+      <textarea id="my-text-area"></textarea>
+    </div>-->
     <script defer src="js/jsTodoExtensions.js"></script>
     <script defer src="js/jsTodoTxt.js"></script>
     <script defer src="js/autolink.js"></script>
@@ -468,5 +494,7 @@
     <script defer src="js/fontawesome.js"></script>
     <script defer src="js/fontawesome.solid.min.js"></script>
     <script defer src="js/fontawesome.regular.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+    <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
   </body>
 </html>

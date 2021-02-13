@@ -1,8 +1,8 @@
 # sleek
 ## sleek is a todo app based on todo.txt, free and open-source
-sleek offers a clean and simple interface that can be used with mouse and keyboard, keyboard only or touch devices. You will use an easy to understand but powerful syntax to create todos. According to the <a href="https://github.com/todotxt/todo.txt">concept of todo.txt</a> you can add contexts to your todos or assign them to projects you're working on. Priorities can be set and if you add due dates sleek will send you notifications just in time.
+sleek offers a clean and simple interface that can be used with mouse and keyboard, keyboard only or touch devices. Using the <a href="https://github.com/todotxt/todo.txt">concept of todo.txt</a>, an easy to understand but powerful syntax to create todos, you can add contexts to your todos or assign them to projects you're working on. Priorities can be set and if you add due dates and recurrences, sleek will send you notifications just in time.
 
-All that can be done typing plain text or guided by sleeks interface that for instance will show suggestions on contexts and projects while typing, offers pickers to ease the selection of due dates or set recurrence intervals, if your todos should repeat themselves.
+All that can be done typing plain text or guided by sleeks interface that for instance will show suggestions on contexts and projects while typing, offers pickers to ease the selection of due dates or set recurrence intervals.
 
 There is no cloud integration, but as sleek writes your todos into a plain text file, you can put it anywhere and sync it to all your devices. That also means if you don't have sleek at hand or if you don't like it any more you can just edit the todo.txt file with any text editor or other todo.txt application.
 
@@ -56,6 +56,7 @@ You can find binaries for Windows, MacOS and Linux on the <a href="https://githu
   - "rec:w" (weekly)
   - "rec:m" (monthly)
   - "rec:y" (annually)
+  - also if a todo for example shall repeat itself every 2 weeks: rec:2w
 * Available contexts and projects will be suggested according to your input
 * Todos can be filtered by contexts and projects
 * Filters are sorted alphanummerically
@@ -83,6 +84,7 @@ You can find binaries for Windows, MacOS and Linux on the <a href="https://githu
   - Open settings: CMD/CTRL + ,
   - Toggle side bar: CMD/CTRL + b
   - Set priorities in add/edit todo window: CTRL+SHIFT+[A-Z]
+* Markdown files (.md) can be used
 
 ### Used libraries
 - Electron: https://github.com/electron/electron
